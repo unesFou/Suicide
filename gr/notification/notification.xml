@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- ############################	aa.notification		############################### -->
+		<record model="ir.ui.view" id="aa_notification_form">
+			<field name="name">aa.notification_form</field>
+			<field name="model">aa.notification</field>
+			<field name="arch" type="xml">
+				<form>
+	                <header>
+	                    <button string="to done" name="state_to_done" type="object" states="new" class="oe_highlight"/>
+	                    <button string="to new" name="state_to_new" type="object" states="done" class="oe_highlight"/>
+	                    <button string="send current notifs" name="send_current_notifs" type="object" class="oe_highlight"/>
+	                    <button string="send chat msg" name="send_chat_msg" type="object" class="oe_highlight"/>
+	                    <button string="send chat msg2" name="send_chat_msg2" type="object" class="oe_highlight"/>
+	                    <button string="send mail message" name="send_mail_message" type="object" class="oe_highlight"/>
+	                    <button string="websocket" name="websocket" type="object" class="oe_highlight"/>
+	                    <button string="get current notifs" name="get_current_notifs" type="object" class="oe_highlight"/>
+	                    <button string="state to new for all notifs" name="state_to_new_for_all_notifs" type="object" class="oe_highlight"/>
+	                </header>
+					<sheet>
+						<group>
+							<field name="date_s" />
+							<field name="date_e" />
+							<field name="duration" />
+							<field name="descr" />
+							<field name="company_id" />
+							<field name="camera_id" />
+							<field name="type" />
+							<field name="state" />
+							<field name="img_file"  filename="img_file_name"  widget="image"/>
+							<field name="img_file_name" invisible="1"/> <!--  -->
+							
+							<field name="color_state" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="aa_notification_tree">
+			<field name="name">aa.notification_tree</field>
+			<field name="model">aa.notification</field>
+			<field name="arch" type="xml">
+				<tree create="false" edit="false" ><!-- delete="false" -->
+					<field name="date_s" />
+					<field name="date_e" />
+					<field name="duration" />
+					<field name="descr" />
+					<field name="company_id" />
+					<field name="camera_id" />
+					<field name="img_file" widget="binary"/>
+					<field name="type" />
+					<field name="state" />
+					<field name="color_state" />
+				</tree>	
+			</field>
+		</record>
+		
+		
+		<record model="ir.ui.view" id="aa_notification_search">
+			<field name="name">aa.notification_search</field>
+			<field name="model">aa.notification</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="type" />
+                	<filter name="current_notif_filter" string="en cours" domain="[('date_e','=', False)]" help="gr help"/>
+                        
+                    <group expand="0" string="Group By">
+                        <filter name="group_type" string="Type" domain="" context="{'group_by':'type'}"/>
+                        <filter name="group_date_s" string="Date Start" domain="" context="{'group_by':'date_s'}"/>
+                        <filter name="group_camera_id" string="camera" domain="" context="{'group_by':'camera_id'}"/>
+                        <filter name="group_company_id" string="Date Start" domain="" context="{'group_by':'company_id'}"/>
+                        <filter name="group_company_id" string="Unité" domain="" context="{'group_by':'company_id'}"/>
+                    </group>
+				</search>
+			</field>
+		</record>
+		
+		
+		<record id="aa_notification_action" model="ir.actions.act_window">
+			<field name="name">notification</field>
+			<field name="res_model">aa.notification</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field><!--  -->
+		</record>
+		
+	</data>
+</odoo>

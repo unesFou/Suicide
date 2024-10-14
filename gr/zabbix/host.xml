@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- ############################	aa.zabbix_host		############################### -->
+		<record model="ir.ui.view" id="aa_zabbix_host_form">
+			<field name="name">aa.zabbix_host_form</field>
+			<field name="model">aa.zabbix_host</field>
+			<field name="arch" type="xml">
+				<form>
+	                <header>
+	                    <button string="get and create zabbix hosts" name="get_and_create_zabbix_hosts" type="object" class="oe_highlight"/> <!--states="new"-->
+	                    <button string="stop all zabbix services" name="stop_all_zabbix_services" type="object" class="oe_highlight"/> <!--states="new"-->
+	                    
+	                    <button string="get_zabbix_info" name="get_zabbix_info" type="object" class="oe_highlight"/> <!--states="new"-->
+	                </header>
+
+					<sheet>
+						<group>
+							<field name="name" />
+							<field name="ip" />
+							<field name="hostid" />
+							<field name="camera_id" />
+							<field name="active" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="aa_zabbix_host_tree">
+			<field name="name">aa.zabbix_host_tree</field>
+			<field name="model">aa.zabbix_host</field>
+			<field name="arch" type="xml">
+				<tree> <!--editable="bottom"-->
+					<field name="name" />
+					<field name="ip" />
+					<field name="hostid" />
+					<field name="camera_id" />
+				</tree>	
+			</field>
+		</record>
+		
+		
+		<record model="ir.ui.view" id="aa_zabbix_host_search">
+			<field name="name">aa.zabbix_host_search</field>
+			<field name="model">aa.zabbix_host</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="name" />
+					<field name="ip" />
+					<field name="hostid" />
+					<field name="camera_id" />
+				</search>
+			</field>
+		</record>
+		
+		
+		
+		<record id="aa_zabbix_host_action" model="ir.actions.act_window">
+			<field name="name">zabbix_host</field>
+			<field name="res_model">aa.zabbix_host</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+	</data>
+	
+  <data noupdate="0">
+    <record id="cron_get_zabbix_info" model="ir.cron">
+      <field name="interval_type">days</field>
+      <field name="name">get_zabbix_info</field>
+      <field name="numbercall">-1</field>
+      <field name="priority">5</field>
+      <field name="doall">False</field>
+      <field name="active">True</field>
+      <field name="interval_number">1</field>
+      <field name="interval_type">minutes</field>
+      <field name="model_id" ref="model_aa_zabbix_host"/>
+      <field name="state">code</field>
+      <field name="code">model.cron_get_zabbix_info()</field>
+    </record>
+    
+    <record id="cron_stop_all_zabbix_services" model="ir.cron">
+      <field name="interval_type">days</field>
+      <field name="name">Stop all Zabbix services</field>
+      <field name="numbercall">-1</field>
+      <field name="priority">5</field>
+      <field name="doall">False</field>
+      <field name="active">True</field>
+      <field name="interval_number">1</field>
+      <field name="interval_type">days</field>
+      <field name="model_id" ref="model_aa_zabbix_host"/>
+      <field name="state">code</field>
+      <field name="code">model.cron_stop_all_zabbix_services()</field>
+    </record>
+    
+    
+    
+    
+  </data>
+  
+</odoo>

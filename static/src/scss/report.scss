@@ -1,0 +1,127 @@
+.div_signature {
+  position: absolute;
+  top: 800px;
+  left: 50%;
+  width: 40%;
+  text-align: center;
+
+  }
+
+.address {
+  font-weight: bolder;
+}
+
+.o_report_layout_boxed .page > table:not(.o_main_table) tr td:last-child {
+    background-color:transparent;
+  }
+.o_report_layout_boxed table tbody tr td.o_price_total {
+    background-color: transparent;
+}
+
+.img_logo{
+    // height: 30mm;
+    margin-left: 2%;
+    margin-top: 2%;
+    // width: 70%;
+    }
+
+
+.gr_table{
+    width: 100%;
+    // background-color: #f1140d00;//transparent !important;
+    box-sizing: border-box;
+    // border: 1px solid black;
+    font-size: 18px;
+    line-height: 2.0;
+    // border: none !important;
+    }
+.gr_table tr td{
+    // border: none !important;
+    vertical-align: top;
+    text-align:top;
+    //border: 1px solid rgb(199, 16, 16);
+    padding-bottom: 24px;
+    }
+
+.title{
+    font-size:22px;
+    font-weight: bolder
+    }
+
+
+
+
+.ms_table_lines{
+    width: 100%;
+    border: 1px solid black;
+    background-color: transparent !important;
+    box-sizing: border-box;
+    }
+    
+.ms_table_lines, .ms_table_lines  td,.ms_table_lines  th  {
+        border-right: 1px solid black;
+        border-left: 1px solid black;
+        background-color:transparent !important;
+        box-sizing:border-box;
+        border-collapse: collapse;
+        padding: 3px;
+}
+.ms_table_lines  th  {
+        border-bottom: 1px solid black;
+        border-collapse: collapse;
+}
+.ms_border_dotted {
+    border-bottom: 2px dotted #5c5b5b;
+}
+
+.div_table {
+    display: table;
+    width: 100%;
+}
+.div_table > div {
+    display: table-cell;
+    width: 50%;
+}
+
+
+.div_sender {
+    padding: 10px;
+    background-color: #e9ecef;
+    margin: 5px 5px 5px 0px;
+    // height: 200px;
+}
+.div_receiver {
+    padding: 10px;
+    border: 1px solid black;
+    margin: 5px;
+    height: 100%;
+}
+
+.ms_table_info_total{
+    width: 100%;
+    background-color: transparent !important;
+    box-sizing: border-box;
+    border: none !important;
+    }
+.ms_table_info_total tr td{
+    border: none !important;
+    vertical-align: top;
+    }
+.ms_total{
+    border:  1px solid black !important;
+    }
+.ms_total tr td{
+    border:  1px solid black !important;
+    }
+    
+.o_report_layout_boxed {
+    font-family: 'Lato', 'Noto';
+    color: #000000;
+    font-size: 13px;
+    }
+.ms_width_40 {
+    width: 45%;
+}
+.ms_width_20 {
+    width: 10%;
+}

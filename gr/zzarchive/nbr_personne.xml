@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- ############################	aa.nbr_personne		############################### -->
+		<record model="ir.ui.view" id="aa_nbr_personne_form">
+			<field name="name">aa.nbr_personne_form</field>
+			<field name="model">aa.nbr_personne</field>
+			<field name="arch" type="xml">
+				<form>
+	                <header>
+	                    <button string="delete all" name="delete_all" type="object"  class="oe_highlight"/>
+	                </header>
+					<sheet>
+						<group>
+							<field name="date_s" />
+							<field name="date_e" />
+							<field name="duration" />
+							<field name="camera_id" />
+							<field name="nbr_personne" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="aa_nbr_personne_tree">
+			<field name="name">aa.nbr_personne_tree</field>
+			<field name="model">aa.nbr_personne</field>
+			<field name="arch" type="xml">
+				<tree ><!--  create="false" edit="false" delete="false" -->
+					<field name="date_s" />
+					<field name="date_e" />
+					<field name="nbr_personne" />
+					<field name="company_id" />
+					<field name="camera_id" />
+					<field name="duration" />
+				</tree>	
+			</field>
+		</record>
+		
+		<record id="nbr_personne_graph" model="ir.ui.view">
+			<field name="name">aa.nbr_personne_graph</field>
+			<field name="model">aa.nbr_personne</field>
+			<field name="arch" type="xml">
+				<graph type="pie" >
+					<field name="nbr_personne" type="row" />
+<!-- 					<field name="date_s" type="measure" /> -->
+				</graph>
+			</field>
+		</record>
+
+<!-- 		<record model="ir.ui.view" id="aa_nbr_personne_search"> -->
+<!-- 			<field name="name">aa.nbr_personne_search</field> -->
+<!-- 			<field name="model">aa.nbr_personne</field> -->
+<!-- 			<field name="arch" type="xml"> -->
+<!-- 				<search> -->
+<!-- 					<field name="type" /> -->
+<!--                     <group expand="0" string="Group By"> -->
+<!--                         <filter name="group_type" string="Type" domain="" context="{'group_by':'type'}"/> -->
+<!--                     </group> -->
+<!-- 				</search> -->
+<!-- 			</field> -->
+<!-- 		</record> -->
+
+		<record id="aa_nbr_personne_action" model="ir.actions.act_window">
+			<field name="name">nbr_personne</field>
+			<field name="res_model">aa.nbr_personne</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,graph,form</field>
+		</record>
+		
+	</data>
+</odoo>

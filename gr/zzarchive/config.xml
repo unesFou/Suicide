@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- ############################	aa.camera		############################### -->
+		<record model="ir.ui.view" id="aa_camera_form">
+			<field name="name">aa.camera_form</field>
+			<field name="model">aa.camera</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name" />
+							<field name="ip" />
+							<field name="login" />
+							<field name="password" />
+							<field name="type" />
+							<field name="unite_id" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="aa_camera_tree">
+			<field name="name">aa.camera_tree</field>
+			<field name="model">aa.camera</field>
+			<field name="arch" type="xml">
+				<tree editable="bottom">
+					<field name="sequence" widget="handle"/>
+					<field name="name" />
+					<field name="ip" />
+					<field name="login" />
+					<field name="password" />
+					<field name="type" />
+					<field name="unite_id" />
+				</tree>	
+			</field>
+		</record>
+		
+		
+		<record model="ir.ui.view" id="aa_camera_search">
+			<field name="name">aa.camera_search</field>
+			<field name="model">aa.camera</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="name" />
+					<field name="unite_id" />
+					<field name="ip" />
+					<field name="type" />
+				</search>
+			</field>
+		</record>
+		
+		<record id="aa_camera_action" model="ir.actions.act_window">
+			<field name="name">camera</field>
+			<field name="res_model">aa.camera</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+	</data>
+</odoo>

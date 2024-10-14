@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- ############################	aa.administration		############################### -->
+		<record model="ir.ui.view" id="aa_administration_form">
+			<field name="name">aa.administration_form</field>
+			<field name="model">aa.administration</field>
+			<field name="arch" type="xml">
+				<form>
+<!--	                <header>-->
+<!--	                    <button string="to done" name="state_to_done" type="object" states="new" class="oe_highlight"/>-->
+<!--	                </header>-->
+					<sheet>
+						<group col="5" string="Unités">
+							<field name="old_company_id" />
+							<field name="new_company_id" />
+							<button string="fusionner" name="merge_companies" type="object" class="oe_highlight"/>
+						</group>
+						<group  col="5">
+							<button string="import Unites" name="import_unites" type="object" class="oe_highlight"/>
+							<button string="delete all unites" name="delete_all_unites" type="object" class="oe_highlight"/>
+							<button string="mark existing unites as old" name="mark_existing_unites_as_old" type="object" class="oe_highlight"/>
+							<button string="add existing unites to admin" name="add_existing_unites_to_admin" type="object" class="oe_highlight"/>
+							<button string="adapt unite type" name="adapt_unite_type" type="object" class="oe_highlight"/>
+							<button string="archive not used companies" name="archive_not_used_companies" type="object" class="oe_highlight"/>
+						</group>
+						
+						<group col="5" string="Caméras">
+							<field name="date" />
+							<button string="show last old notif" name="show_last_old_notif" type="object" class="oe_highlight"/>
+							<button string="show camera no notif" name="show_camera_no_notif" type="object" class="oe_highlight"/>
+						</group>
+						
+						<group col="5" string="Notifications">
+							<button string="recompute duration" name="recompute_duration" type="object" class="oe_highlight"/>
+							
+						</group>
+						<group col="5" string="query">
+							<field name="query" />
+							<button string="run query" name="run_query" type="object" class="oe_highlight"/>
+							
+						</group>
+						
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		
+		
+		<record id="aa_administration_action" model="ir.actions.act_window">
+			<field name="name">administration</field>
+			<field name="res_model">aa.administration</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field><!--  -->
+		</record>
+		
+	</data>
+</odoo>

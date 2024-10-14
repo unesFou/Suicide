@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POST Request with JSON</title>
+</head>
+<body>
+
+<script>
+    // Function to send a POST request with JSON data
+    function sendPostRequest() {
+        // URL for the POST request
+        var url = "http://192.168.100.88:8070/api/img_notif/383";
+
+        // Data to be sent in JSON format
+        var jsonData = {
+            // Your JSON data here
+            key1: "value1",
+            key2: "value2"
+        };
+
+        // Convert JSON data to a string
+        var jsonString = JSON.stringify(jsonData);
+
+        // Create a new XMLHttpRequest object
+        var xhr = new XMLHttpRequest();
+
+        // Set up the request
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        // Set up the callback function to handle the response
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Handle the response here
+                console.log(xhr.responseText);
+            }
+        };
+
+        // Send the request with the JSON data
+        xhr.send(jsonString);
+    }
+
+    // Call the function to send the POST request
+    sendPostRequest();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- ############################	aa.camera		############################### -->
+		<record model="ir.ui.view" id="aa_camera_form">
+			<field name="name">aa.camera_form</field>
+			<field name="model">aa.camera</field>
+			<field name="arch" type="xml">
+				<form>
+				<header>
+					<button string="show notifs" name="show_notifs" type="object" class="oe_highlight"/>
+				</header>
+					<sheet>
+						<group>
+							<field name="name" />
+<!--							<field name="ip" />-->
+							<field name="ip_nvr" />
+<!--							<field name="ip_cam" />-->
+							<field name="login" />
+							<field name="password" />
+							<field name="rtsp_str" />
+							<field name="max_elapsed_time" />
+							<field name="host_id" />
+							<field name="type" />
+							<field name="company_id" />
+							<field name="desc" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="aa_camera_tree">
+			<field name="name">aa.camera_tree</field>
+			<field name="model">aa.camera</field>
+			<field name="arch" type="xml">
+				<tree> <!--editable="bottom"-->
+					<field name="sequence" widget="handle"/>
+					<field name="company_id" />
+					<field name="name" />
+<!--					<field name="ip" />-->
+					<field name="ip_nvr" />
+<!--					<field name="ip_cam" />-->
+					<field name="login" />
+					<field name="password" />
+					<field name="rtsp_str" />
+					<field name="max_elapsed_time" />
+					<field name="desc" />
+					<field name="host_id" />
+					<field name="type" />
+					<field name="color_state" />
+				</tree>	
+			</field>
+		</record>
+		
+		
+		<record model="ir.ui.view" id="aa_camera_search">
+			<field name="name">aa.camera_search</field>
+			<field name="model">aa.camera</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="name" />
+					<field name="company_id" />
+					<field name="ip_nvr" />
+					<field name="type" />
+                    <group expand="0" string="Group By">
+                        <filter name="group_company_id" string="Unité" domain="" context="{'group_by':'company_id'}"/>
+                    </group>
+				</search>
+			</field>
+		</record>
+		
+		
+		
+		<record id="aa_camera_action" model="ir.actions.act_window">
+			<field name="name">camera</field>
+			<field name="res_model">aa.camera</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+	</data>
+</odoo>

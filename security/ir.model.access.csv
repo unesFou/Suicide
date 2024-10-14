@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_aa_camera,aa.camera,model_aa_camera,gr_suicide.group_suicide,1,1,1,1
+access_aa_unite_type,aa.unite_type,model_aa_unite_type,gr_suicide.group_suicide,1,1,1,1
+access_aa_notification,aa.notification,model_aa_notification,gr_suicide.group_suicide,1,1,1,1
+access_aa_zabbix_host,aa.zabbix_host,model_aa_zabbix_host,gr_suicide.group_suicide,1,1,1,1

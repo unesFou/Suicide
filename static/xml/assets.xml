@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="assets_backend" name="correspondance_reports_assets" inherit_id="web.report_assets_common">
+	    <xpath expr="." position="inside">
+	        <link rel="stylesheet" type="text/scss" href="/correspondance/static/src/scss/report.scss"/>
+	    </xpath>
+	</template>
+</odoo>

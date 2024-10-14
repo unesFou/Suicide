@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Odoo API Connection</title>
+  <!-- Include jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <!-- <script src="socket-lib/socket.io.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+
+</head>
+<body>
+
+  <script>
+  
+const odooUrl = 'http://localhost:8072';
+const odooDatabase = 'gr_suicide';
+const odooUsername = 'admin';
+const odooPassword = 'sct.dgh';
+
+// Step 1: Log in to Odoo to obtain the authentication token
+const login = async () => {
+  var settings = {
+  "url": "http://127.0.0.1:8072/web/session/authenticate",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "data": JSON.stringify({
+    "jsonrpc": "2.0",
+    "params": {
+      "db": "gr_suicide",
+      "login": "admin",
+      "password": "sct.dgh"
+    }
+  }),
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+};
+// login();
+const jsonrpc = require('node-jsonrpc');
+const client = new jsonrpc.Client('http://localhost:8069/jsonrpc');
+
+client.call('call', {
+  service: 'object',
+  method: 'execute_kw',
+  args: ['res.partner', 'search_read', [[]], {fields: ['name', 'email']}]
+}, (error, result) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log(result);
+  }
+});
+
+//const WebSocket = require('ws');
+
+// Replace 'ws://your-odoo-server:8072' with the actual WebSocket URL
+//const ws = new WebSocket('ws://localhost:8073');
+// const socket = io.connect('http://127.0.0.1:8072', {
+//     transports: ['websocket'],
+// });
+
+
+
+// const ws = new WebSocket('ws://127.0.0.1:8073/longpolling/poll');
+
+// ws.onopen = () => {
+//   console.log('WebSocket connection opened');
+// };
+
+// ws.onmessage = (event) => {
+//   console.log('Message received:', event.data);
+//   // Process the received data here
+// };
+
+// ws.onclose = () => {
+//   console.log('WebSocket connection closed');
+// };
+
+// ws.onerror = (error) => {
+//   console.error('WebSocket error:', error);
+// };
+  
+
+
+  
+// ws.send(JSON.stringify({
+//   model: 'your.model.name',
+//   method: 'your_method_name',
+//   args: [your_arguments]
+// }));
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    // jQuery AJAX request to connect to Odoo controller
+
+  </script>
+
+</body>
+</html>
+
